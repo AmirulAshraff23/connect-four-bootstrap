@@ -4,11 +4,11 @@ function generateBoard(rows, cols) {
 
     for (let i = 0; i < rows; i++) {
         let row = document.createElement('div');
-        row.className = 'connect-four-row';
+        row.className = 'connect-four-row row';
 
         for (let j = 0; j < cols; j++) {
             let column = document.createElement('div');
-            column.className = 'connect-four-column';
+            column.className = 'connect-four-column col';
             row.appendChild(column);
         }
 
