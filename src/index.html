@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Connect Four</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        crossorigin="anonymous">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
+    <div id="titleContainer" class="container mt-5 mb-5 shadow ">
+        <!-- Add the Bootstrap card class to the div -->
+        <div class="card text-center shadow-inner">
+            <div class="card-body">
+                <h1 class="card-title">
+                    <u>CONNECT FOUR</u>
+                </h1>
+                <p class="card-text">
+                    Connect Four Colours and win! <br>
+                    This game uses gravity and a drag drop mechanic.
+                    Good Luck
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="boardContainer" class="container mt-5 mb-5 shadow ">
+        <!-- Add the Bootstrap card class to the div -->
+        <div class="card text-center shadow-inner">
+            <div class="card-body">
+                <h1 class="card-title">
+                    <u>The board goes here</u>
+                </h1>
+                
+                <div class="connect-four-board" id="connectFourBoard">
+                    <!-- Dynamic Generation with JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Add these script tags to include the Bootstrap JavaScript files (jQuery is required) -->
+    <script src="app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+
+
+
 </body>
+
 </html>
