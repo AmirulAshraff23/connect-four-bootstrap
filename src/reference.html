@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Four Game</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Title Section -->
+    <div class="container mt-5 mb-5">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                <h1 class="card-title">
+                    <u>CONNECT FOUR</u>
+                </h1>
+                <p class="card-text">
+                    Connect Four Colours and win! <br>
+                    This game uses gravity and a drag-drop mechanic. Good Luck!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Board Section -->
+    <div class="container mt-5 mb-5">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                <h2 class="card-title">
+                    <u>The Board</u>
+                </h2>
+                <!-- Connect Four Board Here -->
+                <div class="col connect-four-column" style="height: 50px; width: 50px;"></div>
+                    <!-- Rows -->
+                    <div class="connect-four-row">
+                        <!-- Columns -->
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                    </div>
+                    <br>
+
+                    <!-- Row 2 -->
+                    <div class="connect-four-row">
+                        <!-- Columns -->
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                    </div>
+                    <br>
+
+                    <!-- Row 3 -->
+                    <div class="connect-four-row">
+                        <!-- Columns -->
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                    </div>
+                    <br>
+
+                    <!-- Row 4 -->
+                    <div class="connect-four-row">
+                        <!-- Columns -->
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                    </div>
+                    <br>
+
+                    <!-- Row 5 -->
+                    <div class="connect-four-row">
+                        <!-- Columns -->
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                    </div>
+                    <br>
+
+                    <!-- Row 6 -->
+                    <div class="connect-four-row">
+                        <!-- Columns -->
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                        <div class="connect-four-column"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Description Section -->
+    <div class="container mt-5 mb-5">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                <h2 class="card-title">
+                    <u>Description</u>
+                </h2>
+                <p class="card-text">
+                    Add your game description here.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Score Section -->
+    <div class="container mt-5 mb-5">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                <h2 class="card-title">
+                    <u>Score</u>
+                </h2>
+                <!-- Add your score-related content here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Players Section -->
+    <div class="container mt-5 mb-5">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                <h2 class="card-title">
+                    <u>Players</u>
+                </h2>
+                <!-- Add your player-related content here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (optional, but required for some Bootstrap features) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-Jzzss4n9bOfaxHfEXBYV2g2cN5sD9MSUa5FSLq2HCmKcPZaV5HwAg5IYw8kX84c"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
