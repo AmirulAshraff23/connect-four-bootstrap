@@ -64,17 +64,17 @@ body {
     }
 */
 
-/* Styles for Connect Four board */
+/* Styles for the entire Connect Four board */
 .connect-four-board {
     display: grid;
     grid-template-columns: repeat(7, 1fr); /* Create 7 columns with equal width */
-    gap: 5px; /* Add some spacing between columns */
+    gap: 2px; /* Add some spacing between columns */
 }
 
 /* Styles for Connect Four rows */
 .connect-four-row {
-    display: flex;
     justify-content: center;
+    gap: 2px;
 }
 
 /* Styles for Connect Four columns (individual cells) */
@@ -83,5 +83,11 @@ body {
     height: 50px; /* Adjust the height of each column as needed */
     background-color: #f0f0f0; /* Set a background color */
     border: 1px solid #ccc; /* Add a border for visibility */
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* Hover effect for individual cells */
+.connect-four-column:hover {
+    background-color: #b3b3b3; /* Change the background color on hover */
 }
 
