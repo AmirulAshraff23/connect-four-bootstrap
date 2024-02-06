@@ -23,7 +23,7 @@ function generateBoardRecursive(container, rows, cols) {
 const boardContainer = document.getElementById('connectFourBoard');
 
 // Call the recursive function to generate a 6x7 board
-generateBoardRecursive(boardContainer, 6, 7);
+generateBoardRecursive(boardContainer, 7, 6);
 
 
 
