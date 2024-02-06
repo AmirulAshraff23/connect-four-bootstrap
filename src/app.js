@@ -1,26 +1,31 @@
-// Function to generate the Connect Four board
-function generateBoard(rows, cols) {
-    let boardContainer = document.getElementById('connectFourBoard');
-
-    for (let i = 0; i < rows; i++) {
-        let row = document.createElement('div');
-        row.className = 'connect-four-row row';
-
-        for (let j = 0; j < cols; j++) {
-            let column = document.createElement('div');
-            column.className = 'connect-four-column col';
-            row.appendChild(column);
-        }
-
-        boardContainer.appendChild(row);
+function generateBoardRecursive(container, rows, cols) {
+    if (rows === 0) {
+        return; // Base case: stop recursion when rows are exhausted
     }
+
+    let row = document.createElement('div');
+    row.className = 'connect-four-row';
+
+    for (let j = 0; j < cols; j++) {
+        let column = document.createElement('div');
+        column.className = 'connect-four-column';
+        row.appendChild(column);
+    }
+
+    container.appendChild(row);
+    container.appendChild(document.createElement('br')); // Add line break after each row
+
+    // Recursive call for the next row
+    generateBoardRecursive(container, rows - 1, cols);
 }
 
-// Call the function to generate a 6x7 board
-generateBoard(6, 7);
+// Find the board container by ID
+const boardContainer = document.getElementById('connectFourBoard');
 
-// Assuming your boardContainer has an ID, let's say "boardContainer"
-const boardContainer = document.getElementById('boardContainer');
+// Call the recursive function to generate a 6x7 board
+generateBoardRecursive(boardContainer, 6, 7);
+
+
 
 // Add event listeners to columns inside the boardContainer
 boardContainer.addEventListener('click', function(event) {
