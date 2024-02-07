@@ -19,16 +19,24 @@ function generateBoardRecursive(container, rows, cols) {
     generateBoardRecursive(container, rows - 1, cols);
 }
 
-
 // Find the board container by ID
 const boardContainer = document.getElementById('connectFourBoard');
 
 // Call the recursive function to generate a 6x7 board
 generateBoardRecursive(boardContainer, 7, 6);
 
+/*// Select all connect-four-columns inside the static board
+const staticColumns = document.querySelectorAll('.connect-four-board .connect-four-column');
 
+// Add event listener to staticColumns
+staticColumns.forEach((column, columnIndex) => {
+    column.addEventListener('click', function () {
+        // Call the handlePlayerMove function with the column index
+        handlePlayerMove(columnIndex);
+    });
+}); */
 
-// Add event listeners to columns inside the boardContainer
+/*// Add event listeners to columns inside the boardContainer
 boardContainer.addEventListener('click', function (event) {
     // Check if the clicked element has the class "connect-four-column"
     if (event.target.classList.contains('connect-four-column')) {
@@ -38,7 +46,7 @@ boardContainer.addEventListener('click', function (event) {
         // Call the handlePlayerMove function with the column index
         handlePlayerMove(columnIndex);
     }
-});
+});*/
 
 // Assume board is a 2D array representing the game board
 const board = [
@@ -49,6 +57,22 @@ const board = [
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0]
 ];
+
+
+/*// Sample event listener for a column click
+document.getElementById('connectFourBoard').addEventListener('click', function (event) {
+    // Check if it's the current player's turn
+    if (currentPlayer === 1 || currentPlayer === 2) {
+        // Check if the clicked element has the class "connect-four-column"
+        if (event.target.classList.contains('connect-four-column')) {
+            // Get the index of the clicked column
+            const columnIndex = Array.from(event.target.parentNode.children).indexOf(event.target);
+
+            // Call the handlePlayerMove function with the column index
+            handlePlayerMove(columnIndex);
+        }
+    }
+});*/
 
 
 
