@@ -12,12 +12,13 @@ function generateBoardRecursive(container, rows, cols) {
         row.appendChild(column);
     }
 
-    container.appendChild(row);
-    container.appendChild(document.createElement('br')); // Add line break after each row
+    container.prepend(row); // Use prepend instead of append to add the row at the beginning
+    container.prepend(document.createElement('br')); // Add line break after each row
 
     // Recursive call for the next row
     generateBoardRecursive(container, rows - 1, cols);
 }
+
 
 // Find the board container by ID
 const boardContainer = document.getElementById('connectFourBoard');
@@ -51,27 +52,31 @@ const board = [
 
 
 
-boardContainer.addEventListener('click', function (event) {
-    // Check if the clicked element has the class "connect-four-column"
-    if (event.target.classList.contains('connect-four-column')) {
-        // Get the index of the clicked column
-        const columnIndex = Array.from(event.target.parentNode.children).indexOf(event.target);
+// Sample event listener for a column click
+document.getElementById('connectFourBoard').addEventListener('click', function (event) {
+    // Check if it's the current player's turn
+    if (currentPlayer === 1 || currentPlayer === 2) {
+        // Check if the clicked element has the class "connect-four-column"
+        if (event.target.classList.contains('connect-four-column')) {
+            // Get the index of the clicked column
+            const columnIndex = Array.from(event.target.parentNode.children).indexOf(event.target);
 
-        // Call the handlePlayerMove function with the column index
-        handlePlayerMove(columnIndex);
+            // Call the handlePlayerMove function with the column index
+            handlePlayerMove(columnIndex);
+        }
     }
 });
 
+
 // Define the handlePlayerMove function
 function handlePlayerMove(column) {
+    console.log('Handling player move for column:', column);
+
     // Find the first empty row in the selected column
     for (let row = board.length - 1; row >= 0; row--) {
         if (board[row][column] === 0) {
             // Update the array with the player's move
-            board[row][column] = currentPlayer; // Assume currentPlayer is a global variable representing the current player (1 or 2)
-
-            // Update the HTML representation of the board
-            updateBoardHTML();
+            board[row][column] = currentPlayer;
 
             // Add logic to check for a win or draw
             checkForWin();
@@ -80,20 +85,29 @@ function handlePlayerMove(column) {
             // Switch to the next player
             switchPlayer();
 
+            // Update the HTML representation of the board
+            updateBoardHTML();
+
             // Break out of the loop since the move has been made
             break;
         }
     }
+
+    // Debugging information
+    console.log('Updated board:', board);
+    console.log('Current player:', currentPlayer);
 }
+
+
 
 let currentPlayer = 1;
 
-// Define the updateBoardHTML function
+// Function to update HTML representation of the board
 function updateBoardHTML() {
     const columns = document.querySelectorAll('.connect-four-column');
 
-    for (let row = 0; row < board.length; row++) {
-        for (let col = 0; col < board[row].length; col++) {
+    for (let col = 0; col < board[0].length; col++) {
+        for (let row = 0; row < board.length; row++) {
             const index = row * board[row].length + col;
             const checker = columns[index];
 
@@ -118,10 +132,10 @@ function checkForDraw() {
     // Implement logic to check if the game is a draw
 }
 
-// Define the switchPlayer function
+// Function to switch player
 function switchPlayer() {
     currentPlayer = currentPlayer === 1 ? 2 : 1;
-    updateTurnIndicator();
+    updateTurnIndicator()
 }
 
 function updateTurnIndicator() {
