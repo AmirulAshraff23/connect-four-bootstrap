@@ -23,7 +23,7 @@ function generateBoardRecursive(container, rows, cols) {
 const boardContainer = document.getElementById('connectFourBoard');
 
 // Call the recursive function to generate a 6x7 board
-generateBoardRecursive(boardContainer, 6, 7); // Modified the rows and cols parameter values
+generateBoardRecursive(boardContainer, 7, 6); // Modified the rows and cols parameter values
 
 /*// Select all connect-four-columns inside the static board
 const staticColumns = document.querySelectorAll('.connect-four-board .connect-four-column');
@@ -49,7 +49,7 @@ boardContainer.addEventListener('click', function (event) {
 });*/
 
 // Assume board is a 2D array representing the game board
-const board = [
+const boardOld = [
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
@@ -58,7 +58,7 @@ const board = [
     [0, 0, 0, 0, 0, 0, 0]
 ];
 
-const boardOld = [
+const board = [
     [0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0],
@@ -86,11 +86,10 @@ document.getElementById('connectFourBoard').addEventListener('click', function (
 
 
 
-// Sample event listener for a column click
 document.getElementById('connectFourBoard').addEventListener('click', function (event) {
     // Check if it's the current player's turn
     if (currentPlayer === 1 || currentPlayer === 2) {
-        // Check if the clicked element has the class "connect-four-column"
+        // Check if the clicked element has the class "connect-four-row"
         if (event.target.classList.contains('connect-four-column')) {
             // Get the index of the clicked column
             const columnIndex = Array.from(event.target.parentNode.children).indexOf(event.target);
@@ -102,14 +101,14 @@ document.getElementById('connectFourBoard').addEventListener('click', function (
 });
 
 
-function handlePlayerMove(column) {
-    console.log('Handling player move for column:', column);
+function handlePlayerMove(row) {
+    console.log('Handling player move for row:', row);
 
-    // Find the first empty row in the selected column from bottom to top
-    for (let row = board.length - 1; row >= 0; row--) { // Modified loop for bottom-to-top
-        if (board[row][column] === 0) {
+    // Find the first empty column in the selected row from left to right
+    for (let col = 0; col < board[row].length; col++) {
+        if (board[row][col] === 0) {
             // Update the array with the player's move
-            board[row][column] = currentPlayer;
+            board[row][col] = currentPlayer;
 
             // Add logic to check for a win or draw
             checkForWin();
@@ -130,6 +129,7 @@ function handlePlayerMove(column) {
     console.log('Updated board:', board);
     console.log('Current player:', currentPlayer);
 }
+
 
 
 
@@ -155,6 +155,30 @@ function updateBoardHTML() {
         }
     }
 }
+
+// Function to update HTML representation of the board
+function updateBoardHTML() {
+    const columns = document.querySelectorAll('.connect-four-column');
+
+    for (let row = 0; row < board.length; row++) {
+        for (let col = 0; col < board[0].length; col++) { // Modified loop for 7x6 board
+            const index = row * board[row].length + col;
+            const checker = columns[index];
+
+            // Swap row and col to rotate the board clockwise
+            if (board[row][col] === 1) {
+                checker.style.backgroundColor = 'red';
+            } else if (board[row][col] === 2) {
+                checker.style.backgroundColor = 'yellow';
+            } else {
+                checker.style.backgroundColor = '#f0f0f0';
+            }
+        }
+    }
+}
+
+
+
 
 // Define the checkForWin function
 function checkForWin() {
