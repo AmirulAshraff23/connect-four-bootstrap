@@ -23,7 +23,7 @@ function generateBoardRecursive(container, rows, cols) {
 const boardContainer = document.getElementById('connectFourBoard');
 
 // Call the recursive function to generate a 6x7 board
-generateBoardRecursive(boardContainer, 7, 6);
+generateBoardRecursive(boardContainer, 6, 7); // Modified the rows and cols parameter values
 
 /*// Select all connect-four-columns inside the static board
 const staticColumns = document.querySelectorAll('.connect-four-board .connect-four-column');
@@ -49,7 +49,7 @@ boardContainer.addEventListener('click', function (event) {
 });*/
 
 // Assume board is a 2D array representing the game board
-const boardOld = [
+const board = [
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
@@ -58,7 +58,7 @@ const boardOld = [
     [0, 0, 0, 0, 0, 0, 0]
 ];
 
-const board = [
+const boardOld = [
     [0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0],
@@ -102,12 +102,11 @@ document.getElementById('connectFourBoard').addEventListener('click', function (
 });
 
 
-// Define the handlePlayerMove function
 function handlePlayerMove(column) {
     console.log('Handling player move for column:', column);
 
-    // Find the first empty row in the selected column
-    for (let row = board.length - 1; row >= 0; row--) {
+    // Find the first empty row in the selected column from bottom to top
+    for (let row = board.length - 1; row >= 0; row--) { // Modified loop for bottom-to-top
         if (board[row][column] === 0) {
             // Update the array with the player's move
             board[row][column] = currentPlayer;
@@ -131,6 +130,7 @@ function handlePlayerMove(column) {
     console.log('Updated board:', board);
     console.log('Current player:', currentPlayer);
 }
+
 
 
 
