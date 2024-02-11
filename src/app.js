@@ -160,12 +160,11 @@ function updateBoardHTML() {
 function updateBoardHTML() {
     const columns = document.querySelectorAll('.connect-four-column');
 
-    for (let row = 0; row < board.length; row++) {
-        for (let col = 0; col < board[0].length; col++) { // Modified loop for 7x6 board
+    for (let col = 0; col < board[0].length; col++) {
+        for (let row = 0; row < board.length; row++) {
             const index = row * board[row].length + col;
             const checker = columns[index];
 
-            // Swap row and col to rotate the board clockwise
             if (board[row][col] === 1) {
                 checker.style.backgroundColor = 'red';
             } else if (board[row][col] === 2) {
@@ -173,9 +172,13 @@ function updateBoardHTML() {
             } else {
                 checker.style.backgroundColor = '#f0f0f0';
             }
+
+            // Set border radius to make it a circle
+            checker.style.borderRadius = '50%';
         }
     }
 }
+
 
 
 
