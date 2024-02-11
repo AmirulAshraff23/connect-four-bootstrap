@@ -43,9 +43,13 @@ function updateBoardHTML() {
             } else {
                 checker.style.backgroundColor = '#f0f0f0';
             }
+
+            // Set border radius to make it a circle
+            checker.style.borderRadius = '50%';
         }
     }
 }
+
 
 // Sample event listener for a column click
 document.getElementById('connectFourBoard').addEventListener('click', function (event) {
